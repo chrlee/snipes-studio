@@ -52,7 +52,7 @@ const productPage = ({ data }) => {
     return (
         <>
             <SEO title={product.title} />
-            <section className="hero is-fullheight-with-navbar">
+            <section className="hero is-fullheight">
                 <div className="hero-body" style={{ display: "block" }}>
                     <div className="container">
                         <Flex
@@ -105,9 +105,6 @@ const productPage = ({ data }) => {
                                 </div>
                             </Box>
                         </Flex>
-                    </div>
-                    <div className="container has-text-centered">
-                        <a className="is-medium button" href="/"> ← Back to the Store</a>
                     </div>
                 </div>
             </section>

@@ -1,11 +1,38 @@
 @import "~bulma"
 
 @font-face 
-  font-family: 'Pacifico'
-  font-style: normal
-  font-weight: 400
-  src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2) format('woff2')
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
   font-display: swap
+
+#sceneWrapper
+    position: relative
+    width: 100vw
+    height: 100vh
+
+#sortBy
+    border: none
+
+.navbar
+    display: flex
+    align-content: center
+    width: 100%
+    background: transparent
+    &-item
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+        cursor: pointer
+        background: transparent
+    &-start
+        @extend .navbar
+        margin-left: 0.5rem
+    &-end
+        @extend .navbar
+        margin-right: 0.5rem
+
+.navbar.is-absolute
+    position: absolute
+
+.hotpink
+    color: hotpink
 
 .link-button 
   background-color: transparent
@@ -65,24 +92,21 @@
         opacity: 1
         transform: scale3d(0.7, 0.7, 0)
 
+.box 
+  background-color: white;
+  border-radius: 6px;
+  color: #4a4a4a;
+  display: block;
+  padding: 1.25rem; 
+
 .productBox
     animation-duration: 1s
     animation-name: bounceOut
 
 .productBox :hover
-    animation-duration: 2s
-    animation-timing-function: ease
-    animation-name: hoverProduct
-    animation-direction: alternate
-
-@keyframes hoverProduct 
-    from
-        opacity: 1
-    50%
-        opacity: 0.7
-    100%
-        opacity: 1
-
+    transition-property: opacity
+    transition-duration: 0.3s
+    opacity: 0.8
 
 @keyframes bounceOut 
    0%
@@ -115,6 +139,7 @@
     .allpictures
         flex-direction: column
         width: 1
+
     .box
         padding: 0
         box-shadow: none
@@ -124,4 +149,3 @@
 
     .hero-body
         padding: 3rem 0.5rem
-

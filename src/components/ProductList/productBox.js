@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 const ProductBox = props => {
     const product = props.product
     return (
-        <div className="box productBox" key={product.node.title}>
+        <div className="productBox" key={product.node.title}>
             <a href={`/product/${product.node.handle}`} >
                 <Img
                     fluid={product.node.images[0].localFile.childImageSharp.fluid}

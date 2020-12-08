@@ -1,7 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby'
-import Header from "../components/header"
-import Footer from "../components/footer"
+import Header from "../components/header/header"
 import Provider from "../context/provider"
 import "./layout.sass"
 
@@ -24,7 +23,6 @@ const Layout = ({ children }) => {
                     <>
                         <Header siteTitle={data.site.siteMetadata.title} />
                         {children}
-                        <Footer />
                     </>
                 )}
             />

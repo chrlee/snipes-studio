@@ -31,7 +31,7 @@ const Sort = ({context}) => {
   }
   
   return (
-    <label htmlFor="sortBy" className="has-text-weight-semibold is-uppercase" style={{ margin: "-20px" }}>SORT BY :
+    <label htmlFor="sortBy" className="has-text-weight-semibold" style={{ margin: "-20px" }}>SORT BY :
       <div className="field">
         <div className="control">
           <div className="select">
