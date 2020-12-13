@@ -1,17 +1,36 @@
-@import "~bulma"
+//@import "~bulma"
+@import "~bulma/sass/utilities/initial-variables.sass";
+$navbar-breakpoint: 300px;
+$body-background-color: #fcfafc
+@import "~bulma/bulma.sass";
 
-@font-face 
+body
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
   font-display: swap
+
+.select select
+    background-color: transparent
 
 #sceneWrapper
     position: relative
     width: 100vw
     height: 100vh
 
-#sortBy
+#sortBy, #filter
     border: none
+    margin-left: 0.5rem
 
+#sortBy
+    justify-self: start
+
+#filter
+    justify-self: end
+
+.hero-body
+    padding: 0.5rem
+    &.padded
+        padding: 4rem 1.5rem
+    
 .navbar
     display: flex
     align-content: center
@@ -100,23 +119,19 @@
   padding: 1.25rem; 
 
 .productBox
-    animation-duration: 1s
-    animation-name: bounceOut
+    opacity: 1.0
+    transition: opacity 0.3s ease-in-out
 
 .productBox :hover
-    transition-property: opacity
-    transition-duration: 0.3s
     opacity: 0.8
+    transition: opacity 0.3s ease-in-out
 
-@keyframes bounceOut 
-   0%
-        opacity: 0
-        transform: translate3d(0, 10%, 0)
+.navbar-item
+    opacity: 1.0
+    transition: opacity 0.3s ease-in-out
 
-
-   100%
-        opacity: 1 
-        transform: scale3d(1, 1, 1)
+.navbar-item :hover
+    opacity: 0.8
 
 .fromleft
     animation-name: FromLeft
@@ -143,9 +158,3 @@
     .box
         padding: 0
         box-shadow: none
-
-    .productBox
-        padding: 30px
-
-    .hero-body
-        padding: 3rem 0.5rem

@@ -17,6 +17,7 @@ module.exports = {
       options: {
         shopName: process.env.SHOP_NAME,
         accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+        verbose: true
       },
     },
     {

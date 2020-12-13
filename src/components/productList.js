@@ -12,15 +12,15 @@ const ProductList = ({ data }) => {
     <section className="hero">
       <div className="hero-body">
         <div className="container">
-          <div className="columns is-mobile" style={{ marginBottom: "60px", margin: "0", padding: "10px" }}>
-            <div className="column is-2-desktop is-6-mobile">
-              <Sort context={context} />
-            </div>
-            <div className="column is-2-desktop is-6-mobile">
+          <div className="columns is-mobile level" style={{ marginBottom: "4rem", margin: "0", padding: "0.5rem" }}>
+            <div className="column is-2-desktop is-6-mobile level-left">
               <Collection context={context} products={products} />
             </div>
+            <div className="column is-2-desktop is-6-mobile level-right">
+              <Sort context={context} />
+            </div>
           </div>
-          <div className="columns is-multiline" style={{ margin: "0" }}>
+          <div className="columns is-multiline is-mobile" style={{ margin: "0" }}>
             {
               products
                 .filter(p => context.store.filteredType === 'all' ? p : (p.node.productType.includes(context.store.filteredType)))
@@ -34,7 +34,7 @@ const ProductList = ({ data }) => {
                 .map((p, i) => {
                   let product = p
                   return (
-                    <div className="column is-3" style={{ marginBottom: "40px" }} key={i}>
+                    <div className="column is-3-desktop is-4-tablet is-6-mobile" style={{ marginBottom: "1rem" }} key={i}>
                       <ProductBox product={product} />
                     </div>
                   )

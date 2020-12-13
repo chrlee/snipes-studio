@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import React, { useContext, useState, useEffect } from 'react'
 import StoreContext from '../../context/store'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingBag, faUser, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const countQuantity = lineItems => {
   let quantity = 0
@@ -15,7 +15,7 @@ const countQuantity = lineItems => {
 }
 
 
-const Header = ({ siteTitle }) => {
+const Header = ({ img }) => {
   const context = useContext(StoreContext)
   const { checkout } = context.store
   const [quantity, setQuantity] = useState(countQuantity(checkout ? checkout.lineItems : []))
@@ -79,7 +79,6 @@ const Header = ({ siteTitle }) => {
                 <span className="icon is-right">
                   <FontAwesomeIcon icon={faSearch} />
                 </span>
-                <label className="has-text-white">ENTER ↵</label>
               </form>
             </div>
           </div>

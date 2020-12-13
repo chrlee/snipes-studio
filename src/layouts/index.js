@@ -11,17 +11,19 @@ const Layout = ({ children }) => {
         <Provider>
             <StaticQuery
                 query={graphql`
-                query SiteTitleQuery {
-                site {
-                    siteMetadata {
-                    title
+                query LogoQuery {
+                    logo: file(relativePath: {eq: "logo.png"}) {
+                        childImageSharp {
+                            fixed(width: 100, height: 50) {
+                            ...GatsbyImageSharpFixed
+                            }
+                        }
                     }
-                }
                 }
             `}
                 render={data => (
                     <>
-                        <Header siteTitle={data.site.siteMetadata.title} />
+                        <Header img={data.logo.childImageSharp.fixed} />
                         {children}
                     </>
                 )}
@@ -31,4 +33,3 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
-

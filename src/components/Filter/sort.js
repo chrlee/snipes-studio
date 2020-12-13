@@ -11,16 +11,16 @@ const Sort = ({context}) => {
         Featured
         </option>
       <option key={1} value="A-Z">
-        Alphabetically, A-Z
+        Alphabetic, A-Z
         </option>
       <option key={2} value="Z-A">
-        Alphabetically, Z-A
+        Alphabetic, Z-A
         </option>
       <option key={3} value="low">
-        Price, low to high
+        Price, ↑
         </option>
       <option key={4} value="high">
-        Price, high to low
+        Price, ↓
         </option>
     </>
   )
@@ -31,10 +31,10 @@ const Sort = ({context}) => {
   }
   
   return (
-    <label htmlFor="sortBy" className="has-text-weight-semibold" style={{ margin: "-20px" }}>SORT BY :
+    <label htmlFor="sortBy" className="has-text-dark">
       <div className="field">
         <div className="control">
-          <div className="select">
+          <div className="select level-item">
             <select
               defaultvalues={sort}
               onChange={e => handleFilterSort(e.target.value)}

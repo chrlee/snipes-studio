@@ -1,5 +1,6 @@
 import React from "react"
 import * as THREE from "three"
+import { isMobile } from "react-device-detect"
 
 import { noise } from "./perlin";
 
@@ -40,7 +41,7 @@ class Scene extends React.Component {
     )
 
     this.renderer = window.WebGLRenderingContext ? new THREE.WebGLRenderer({ alpha: true }) : new THREE.CanvasRenderer()
-    this.renderer.setSize(this.mount.clientWidth, this.mount.clientHeight)
+    this.renderer.setSize(this.w, this.h)
     this.renderer.setClearColor( 0xffffff, 0 )
     this.mount.appendChild(this.renderer.domElement)
 
@@ -52,8 +53,8 @@ class Scene extends React.Component {
     //scene.add(cube)
 
     let scale = this.w < 1024 ? this.w/1024 : 1
-    let terrainSize = Math.ceil(18*Math.pow(scale, 2)) + 12
-    let segments = Math.ceil(45*Math.pow(scale, 2)) + 30
+    let terrainSize = Math.ceil(19*Math.pow(scale, 2)) + 11
+    let segments = Math.ceil(50*Math.pow(scale, 2)) + 25
 
     const geometry = new THREE.PlaneBufferGeometry(terrainSize, terrainSize, segments, segments)
     const meshPhong = new THREE.MeshPhongMaterial({color: "black", specular: "gray", shininess: 3, flatShading: false, side: THREE.DoubleSide, wireframe: true})

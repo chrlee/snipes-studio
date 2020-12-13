@@ -29,10 +29,10 @@ const Collection = ({context, products}) => {
         context.updateFilterType(value)
       }
     return (
-        <label htmlFor="filter" className="has-text-weight-semibold is-uppercase" style={{ margin: "-20px" }}>FILTER BY :
-            <div className="field">
+        <label htmlFor="filter" className="has-text-dark">
+            <div className="field is-pulled-left">
                 <div className="control">
-                    <div className="select">
+                    <div className="select level-item">
                         <select
                             defaultvalues={type}
                             onBlur={e => handleFilterType(e.target.value)}

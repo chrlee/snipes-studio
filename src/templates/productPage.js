@@ -53,7 +53,7 @@ const productPage = ({ data }) => {
         <>
             <SEO title={product.title} />
             <section className="hero is-fullheight">
-                <div className="hero-body" style={{ display: "block" }}>
+                <div className="hero-body padded" style={{ display: "block" }}>
                     <div className="container">
                         <Flex
                             flexDirection={['column', null, 'row']}
@@ -83,9 +83,6 @@ const productPage = ({ data }) => {
                                                 </div>
                                             ))
                                         }
-                                        <div className="column is-3">
-                                            <QuantityButton quantity={quantity} setQuantity={setQuantity} />
-                                        </div>
                                     </div>
                                     <br/>
  

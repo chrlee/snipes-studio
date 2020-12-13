@@ -7,10 +7,11 @@ const ProductBox = props => {
         <div className="productBox" key={product.node.title}>
             <a href={`/product/${product.node.handle}`} >
                 <Img
-                    fluid={product.node.images[0].localFile.childImageSharp.fluid}
+                    fluid={{ ...product.node.images[0].localFile.childImageSharp.fluid, aspectRatio: 1 / 1}}
+                    imgStyle={{ objectFit: "contain" }}
                     key={product.node.images[0].localFile.id}
-                    fadeIn={false} 
-                    loading="eager"
+                    fadeIn={true} 
+                    loading="lazy"
                     alt={product.node.title}
                 />
                 <p className="has-text-weight-semibold has-text-black">{product.node.title}</p>
