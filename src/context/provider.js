@@ -21,7 +21,7 @@ const Provider = ({ children }) => {
 
             const setCheckoutInState = checkout => {
                 if (isBrowser) {
-                    localStorage.setItem('shopify_checkout_id', JSON.stringify(checkout.id))
+                    localStorage.setItem('shopify_checkout_id', checkout.id)
                 }
 
                 updateStore(state => {
@@ -43,10 +43,14 @@ const Provider = ({ children }) => {
                     }
                 } catch (e) {
                     localStorage.setItem('shopify_checkout_id', null)
+                    console.log(e)
+                    const newCheckout = await createNewCheckout()
+                    setCheckoutInState(newCheckout)
                 }
+            } else{
+                const newCheckout = await createNewCheckout()
+                setCheckoutInState(newCheckout)
             }
-            const newCheckout = await createNewCheckout()
-            setCheckoutInState(newCheckout)
         }
         initializeCheckout()
     }, [store.client.checkout])
