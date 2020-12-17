@@ -55,13 +55,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-shopify-theme`,
-        short_name: `gatsby-shopify`,
+        name: `perlin noise`,
+        short_name: `perlin noise`,
         start_url: `/`,
         background_color: `#333`,
         theme_color: `#333`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`,
+        icon: `src/images/favicon.png`,
       },
     },
   ],

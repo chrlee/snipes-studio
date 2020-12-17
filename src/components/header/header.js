@@ -1,4 +1,5 @@
 import { Link } from "gatsby" /* eslint-disable */
+import Img from "gatsby-image"
 import PropTypes from "prop-types"
 import React, { useContext, useState, useEffect } from 'react'
 import StoreContext from '../../context/store'
@@ -37,39 +38,49 @@ const Header = ({ img }) => {
   return (
     <>
       <nav className="navbar level is-vcentered is-absolute" role="navigation" aria-label="main navigation">
-            <div className="navbar-start">
-              <div className="navbar-item">
-                <Link aria-label="home" to="/">
-                  <h2 className="is-size-6 has-text-dark">home</h2>
-                </Link>
-              </div>
+        
+          <div className="navbar-start">
+            <div className="navbar-item">
+              <Link aria-label="home" to="/">
+                <h2 className="has-text-grey is-size-6">perlin noise</h2>
+              </Link>
             </div>
-            <div className="navbar-end">
+            {
+            modal === true ? 
+              <form action="../search" method="GET">
+                <div className="navbar-item" id="search-input">
+                  <input class="is-normal" name="value" type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="search" />
+                </div>
+              </form>
+              :
               <div className="navbar-item">
-                <h2 className="has-text-dark is-size-6" onClick={openSearchBar}>search</h2>
+                <h2 className="has-text-grey is-size-6" onClick={openSearchBar}>search</h2>
               </div>
-              <div className="navbar-item">
-                <Link aria-label="cart" to="/account/login">
-                  <h2 className="is-size-6 has-text-dark">account</h2>
-                </Link>
-              </div>
-              <div className="navbar-item">
-                <Link aria-label="cart" to="/cart">
-                  {
-                    quantity > 0 ?
-                    <>
-                      <h2 className="is-size-6 has-text-dark">cart <span className="hotpink">({quantity})</span></h2>
-                    </>
-                      :
-                      <h2 className="is-size-6 has-text-dark">cart</h2>
-                  }
-                </Link>
-              </div>
-        </div>
+            }
+            <div className="navbar-item">
+              <Link aria-label="cart" to="/account/login">
+                <h2 className="is-size-6 has-text-grey">account</h2>
+              </Link>
+            </div>
+            <div className="navbar-item">
+              <Link aria-label="cart" to="/cart">
+                {
+                  quantity > 0 ?
+                  <>
+                    <h2 className="is-size-6 has-text-grey">cart <span className="hotpink">({quantity})</span></h2>
+                  </>
+                    :
+                    <h2 className="is-size-6 has-text-grey">cart</h2>
+                }
+              </Link>
+            </div>
+          </div>
+          
       
       </nav>
+      
 
-      <div className={` ${modal === true ? "modal is-active" : "modal"}`}>
+      <div className={` ${modal === true ? "modal" : "modal"}`}>
         <div className="modal-background" onClick={closeSearchBar}></div>
         <div className="modal-content">
           <div className="field">

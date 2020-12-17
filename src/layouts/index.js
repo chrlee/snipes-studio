@@ -14,8 +14,8 @@ const Layout = ({ children }) => {
                 query LogoQuery {
                     logo: file(relativePath: {eq: "logo.png"}) {
                         childImageSharp {
-                            fixed(width: 100, height: 50) {
-                            ...GatsbyImageSharpFixed
+                            fluid(maxWidth: 300) {
+                            ...GatsbyImageSharpFluid
                             }
                         }
                     }
@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
             `}
                 render={data => (
                     <>
-                        <Header img={data.logo.childImageSharp.fixed} />
+                        <Header img={data.logo.childImageSharp.fluid} />
                         {children}
                     </>
                 )}

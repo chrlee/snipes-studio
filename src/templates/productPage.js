@@ -70,7 +70,7 @@ const productPage = ({ data }) => {
                                 order={3}
                             >
                                 <div>
-                                    <ProductInfo product={product} />
+                                    <ProductInfo product={product} available={available} />
                                     <div className="columns">
                                         {
                                             product.options.map(options => (
@@ -119,6 +119,7 @@ export const query = graphql`
             title
             handle
             productType
+            vendor
             descriptionHtml
             shopifyId
             options {

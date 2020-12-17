@@ -51,7 +51,7 @@ const LoginForm = () => {
   return (
     <>
       {passwordForgot ?
-        <section className="hero is-dark is-fullheight-with-navbar">
+        <section className="hero is-dark is-fullheight">
           <div className="hero-body">
             <div className="container">
               <div className="columns is-centered">

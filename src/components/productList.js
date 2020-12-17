@@ -12,7 +12,7 @@ const ProductList = ({ data }) => {
     <section className="hero">
       <div className="hero-body">
         <div className="container">
-          <div className="columns is-mobile level" style={{ marginBottom: "4rem", margin: "0", padding: "0.5rem" }}>
+          <div className="columns is-mobile level" style={{ marginBottom: "4rem", margin: "0", padding: "1rem 0" }}>
             <div className="column is-2-desktop is-6-mobile level-left">
               <Collection context={context} products={products} />
             </div>

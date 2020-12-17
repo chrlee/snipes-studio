@@ -2,11 +2,28 @@
 @import "~bulma/sass/utilities/initial-variables.sass";
 $navbar-breakpoint: 300px;
 $body-background-color: #fcfafc
+$column-gap: 0.3rem
 @import "~bulma/bulma.sass";
 
 body
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
   font-display: swap
+
+input
+    border: 0
+    background: transparent
+    border-bottom: 1px solid hsl(0, 0%, 48%);
+    width: 5rem
+
+textarea:focus, input:focus
+    outline: none;
+
+
+form
+    display: flex
+
+#search-input
+    cursor: auto
 
 .select select
     background-color: transparent
@@ -40,6 +57,9 @@ body
         font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
         cursor: pointer
         background: transparent
+        transition: color 0.3s ease-in-out
+        :hover
+            color: #FF69B4
     &-start
         @extend .navbar
         margin-left: 0.5rem
@@ -119,14 +139,6 @@ body
   padding: 1.25rem; 
 
 .productBox
-    opacity: 1.0
-    transition: opacity 0.3s ease-in-out
-
-.productBox :hover
-    opacity: 0.8
-    transition: opacity 0.3s ease-in-out
-
-.navbar-item
     opacity: 1.0
     transition: opacity 0.3s ease-in-out
 
