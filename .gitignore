@@ -3,3 +3,8 @@ node_modules
 .vscode
 /public
 
+.env.production
+.env.development
+
+# Local Netlify folder
+.netlify

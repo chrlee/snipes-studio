@@ -30,8 +30,8 @@ module.exports = {
     {
       resolve: "gatsby-source-shopify",
       options: {
-        shopName: process.env.SHOP_NAME,
-        accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+        shopName: process.env.GATSBY_SHOP_NAME,
+        accessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
         apiVersion: "2020-01",
         paginationSize: 250,
         includeCollections: ["shop", "content"]
