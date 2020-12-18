@@ -25,7 +25,7 @@ const ProductList = ({ data }) => {
               products
                 .filter(p => context.store.filteredType === 'all' ? p : (p.node.productType.includes(context.store.filteredType)))
                 .sort(
-                  context.store.filteredSort === "featured" ? (a) => (a)
+                  context.store.filteredSort === "featured" ? ((a, b) => (b.node.variants[0].availableForSale - a.node.variants[0].availableForSale))
                     : context.store.filteredSort === "low" ? ((a, b) => a.node.variants[0].price - b.node.variants[0].price)
                       : context.store.filteredSort === "high" ? ((a, b) => b.node.variants[0].price - a.node.variants[0].price)
                         : context.store.filteredSort === "Z-A" ? ((a, b) => b.node.title.localeCompare(a.node.title))
@@ -34,7 +34,7 @@ const ProductList = ({ data }) => {
                 .map((p, i) => {
                   let product = p
                   return (
-                    <div className="column is-3-desktop is-4-tablet is-6-mobile" style={{ marginBottom: "1rem" }} key={i}>
+                    <div className="column is-3-desktop is-4-tablet is-6-mobile mb-4" key={i}>
                       <ProductBox product={product} />
                     </div>
                   )

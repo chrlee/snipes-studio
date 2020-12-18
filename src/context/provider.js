@@ -94,9 +94,11 @@ const Provider = ({ children }) => {
                             navigate(checkout.webUrl)
                         })
                 },
-                removeLineItem: (client, checkoutID, lineItemID) => {
+                removeLineItem: (lineItemId) => {
+                    const { checkout, client } = store
+                    const checkoutId = checkout.id
                     return client.checkout
-                        .removeLineItems(checkoutID, [lineItemID])
+                        .removeLineItems(checkoutId, [lineItemId])
                         .then(resultat => {
                             updateStore(state => {
                                 return { ...state, checkout: resultat }

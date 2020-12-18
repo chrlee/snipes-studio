@@ -14,7 +14,7 @@ const SearchPage = ({ data }) => {
     return (
         <>
             <SEO title="Home" />
-            <section className="hero is-dark">
+            <section className="hero is-fullheight">
                 <div className="hero-body">
                     <div className="container">
                         <div className="field">
@@ -25,14 +25,10 @@ const SearchPage = ({ data }) => {
                                 </span>
                             </p>
                         </div>
+                        <h1 className="is-size-5 has-text-medium">RESULTS FOR "{search.toLowerCase()}" :</h1>
                     </div>
                 </div>
-            </section>
-            <section className="hero is-dark">
                 <div className="hero-body">
-                    <div className="hero-body">
-                        <h1 className="is-size-5 has-text-medium">RESULTS FOR "{search.toUpperCase()}" :</h1>
-                    </div>
                     <div className="container">
                         <div className="columns is-multiline ">
                             {products.filter(p =>

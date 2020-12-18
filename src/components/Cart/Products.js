@@ -18,7 +18,7 @@ const Products = ({checkout}) => {
                 </thead>
                 <tbody>
                     {checkout.lineItems.map(line_item => {
-                        return <Product key={line_item.id.toString()} line_item={line_item} />
+                        return <Product checkout={checkout} line_item={line_item} />
                     })}
                 </tbody>
             </table>

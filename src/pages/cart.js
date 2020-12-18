@@ -11,7 +11,7 @@ const Cart = () => {
     return (
         <>
             <SEO />
-            <section className="hero is-large">
+            <section className="hero is-fullheight">
                 <div className="hero-body">
                     <div className="container">
                         {

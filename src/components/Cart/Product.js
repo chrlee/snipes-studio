@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import StoreContext from "../../context/store"
 
-const Product = ({ key, line_item }) => {
+const Product = ({ checkout, line_item }) => {
 
     const context = useContext(StoreContext)
 
@@ -15,7 +15,7 @@ const Product = ({ key, line_item }) => {
     )
 
     const removeItem = () => {
-        context.removeLineItem(context.client, context.checkout.id, line_item.id)
+        context.removeLineItem(line_item.id)
     }
     return (
         <>
