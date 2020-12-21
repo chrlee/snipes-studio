@@ -57,8 +57,6 @@ const productPage = ({ data }) => {
                     <div className="container">
                         <Flex
                             flexDirection={['column', null, 'row']}
-                            pt={3}
-                            px={4}
                         >
                             <Gallery product={product} />
 

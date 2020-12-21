@@ -42,12 +42,17 @@ const Header = ({ img }) => {
           <div className="navbar-start">
             <div className="navbar-item">
               <Link aria-label="home" to="/">
-                <h2 className="has-text-grey is-size-6">perlin noise</h2>
+                <h2 className="has-text-grey is-size-5">perlin noise</h2>
+              </Link>
+            </div>
+            <div className="navbar-item">
+              <Link aria-label="cart" to="/account/login">
+                <h2 className="is-size-6 has-text-grey">about</h2>
               </Link>
             </div>
             {
             modal === true ? 
-              <form action="../search" method="GET">
+              <form action="/search" method="GET">
                 <div className="navbar-item" id="search-input">
                   <input class="is-normal" name="value" type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="search" />
                 </div>
@@ -57,11 +62,6 @@ const Header = ({ img }) => {
                 <h2 className="has-text-grey is-size-6" onClick={openSearchBar}>search</h2>
               </div>
             }
-            <div className="navbar-item">
-              <Link aria-label="cart" to="/account/login">
-                <h2 className="is-size-6 has-text-grey">account</h2>
-              </Link>
-            </div>
             <div className="navbar-item">
               <Link aria-label="cart" to="/cart">
                 {

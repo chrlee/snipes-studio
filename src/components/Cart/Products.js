@@ -5,7 +5,7 @@ const Products = ({checkout}) => {
 
     return (
         <div>
-            <h1 className="title has-text-centered">Your shopping cart</h1>
+            <h1 className="has-text-gray has-text-centered is-size-5 mb-4">checkout</h1>
             <table className="table is-fullwidth is-hoverable">
                 <thead className="is-hidden-touch">
                     <tr align="center">

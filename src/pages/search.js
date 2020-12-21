@@ -85,6 +85,7 @@ export const query = graphql`
             id
             title
             price
+            availableForSale
           }
         }
       }

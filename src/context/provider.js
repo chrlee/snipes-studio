@@ -68,13 +68,23 @@ const Provider = ({ children }) => {
                     const lineItemsToUpdate = [
                         { variantId, quantity: parseInt(quantity, 10) },
                     ]
-                    return client.checkout
-                        .addLineItems(checkoutId, lineItemsToUpdate)
-                        .then(checkout => {
-                            updateStore(state => {
-                                return { ...state, checkout, adding: true }
+                    var inCart = false
+                    checkout.lineItems.forEach(lineItem => {
+                        if(lineItem.variant.id === variantId) {
+                            inCart = true
+                    }
+                    })
+                    if(!inCart){
+                        return client.checkout
+                            .addLineItems(checkoutId, lineItemsToUpdate)
+                            .then(checkout => {
+                                updateStore(state => {
+                                    return { ...state, checkout, adding: true }
+                                })
                             })
-                        })
+                    } else {
+                        return false
+                    }
                 },
                 addVariantToCartAndBuyNow: (variantId, quantity) => {
                     updateStore(state => {
@@ -85,14 +95,24 @@ const Provider = ({ children }) => {
                     const lineItemsToUpdate = [
                         { variantId, quantity: parseInt(quantity, 10) },
                     ]
-                    return client.checkout
-                        .addLineItems(checkoutId, lineItemsToUpdate)
-                        .then(checkout => {
-                            updateStore(state => {
-                                return { ...state, checkout, adding: false }
+                    var inCart = false
+                    checkout.lineItems.forEach(lineItem => {
+                        if(lineItem.variant.id === variantId) {
+                            inCart = true
+                        }
+                    })
+                    if(!inCart) {
+                        return client.checkout
+                            .addLineItems(checkoutId, lineItemsToUpdate)
+                            .then(checkout => {
+                                updateStore(state => {
+                                    return { ...state, checkout, adding: false }
+                                })
+                                navigate(checkout.webUrl)
                             })
-                            navigate(checkout.webUrl)
-                        })
+                    } else {
+                        navigate(checkout.webUrl)
+                    }
                 },
                 removeLineItem: (lineItemId) => {
                     const { checkout, client } = store
@@ -105,12 +125,17 @@ const Provider = ({ children }) => {
                             })
                         })
                 },
-                updateLineItem: (client, checkoutID, lineItemID, quantity) => {
+                updateLineItem: (lineItemId, quantity) => {
+                    updateStore(state => {
+                        return { ...state, adding: true }
+                    })
+                    const { checkout, client } = store
+                    const checkoutId = checkout.id
                     const lineItemsToUpdate = [
-                        { id: lineItemID, quantity: parseInt(quantity, 10) },
+                        { lineItemId, quantity: parseInt(quantity, 10) },
                     ]
                     return client.checkout
-                        .updateLineItems(checkoutID, lineItemsToUpdate)
+                        .updateLineItems(checkoutId, lineItemsToUpdate)
                         .then(resultat => {
                             updateStore(state => {
                                 return { ...state, checkout: resultat }

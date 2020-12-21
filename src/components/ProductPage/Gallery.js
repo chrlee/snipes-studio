@@ -18,13 +18,13 @@ const Gallery = ({ product }) => {
     return (
         <>
             <Box
-                width={[1 / 2, null, .5 / 5]}
+                width={[2 / 2, null, .5 / 5]}
                 py={2}
                 px={[2, null, 0]}
                 order={[2, null, 1]}
             >
                 <Box
-                    width={1}
+                    width={'100%'}
                     aria-hidden
                     style={{ overflow: 'auto' }}
                 >
@@ -35,23 +35,23 @@ const Gallery = ({ product }) => {
                             currentImage === product.images[i] ?
                                 <ThumbnailBox
                                     key={i}
-                                    style={{ marginBottom: "10px", border: "3px solid black" }}
+                                    style={{ marginBottom: "1rem", border: "3px solid black" }}
                                     width={['400px', null, 'auto']}
                                     ml={[0, null, 2]}
                                     mr={[2, null, 0]}
                                     my={1}
                                 >
                                     <Img
-                                        fluid={x.localFile.childImageSharp.fluid}
+                                        fluid={{...x.localFile.childImageSharp.fluid, aspectRatio: 1 / 1}}
+                                        imgStyle={{ filter: "grayscale(80%)", marginBorder: "0.3rem solid black", objectFit: "contain" }}
                                         alt={product.title}
-                                        fadeIn={false} 
+                                        fadeIn={true} 
                                         loading="eager"
-                                        imgStyle={{ WebkitFilter: "blur(1px)", marginBorder: "10px solid black" }}
                                     />
                                 </ThumbnailBox>
                                 :
                                 <ThumbnailBox
-                                    onMouseOver={e => setCurrentImage(product.images[i])} style={{ marginBottom: "10px" }}
+                                    onMouseOver={e => setCurrentImage(product.images[i])} style={{ marginBottom: "1rem" }}
                                     key={i}
                                     width={['400px', null, 'auto']}
                                     ml={[0, null, 2]}
@@ -59,10 +59,10 @@ const Gallery = ({ product }) => {
                                     my={1}
                                 >
                                     <Img
-                                        fluid={x.localFile.childImageSharp.fluid}
-                                        fadeIn={false} 
+                                        fluid={{...x.localFile.childImageSharp.fluid, aspectRatio: 1 / 1}}
+                                        imgStyle={{ objectFit: "contain" }}
+                                        fadeIn={true} 
                                         loading="eager"
-                                        durationFadeIn={500 * i}
                                         alt={product.title}
 
                                     />
@@ -74,7 +74,7 @@ const Gallery = ({ product }) => {
 
             <Box
                 width={[5 / 5, null, 3 / 5]}
-                style={{ margin: "auto", marginTop: "0" }}
+                style={{ margin: "0" }}
                 ml="auto"
                 py={2}
                 px={[2, null, 3]}
@@ -82,7 +82,8 @@ const Gallery = ({ product }) => {
                 className="img-hover-zoom--zoom-n-rotate img-hover-zoom"
             >
                 <Img
-                    fluid={currentImage.localFile.childImageSharp.fluid}
+                    fluid={{...currentImage.localFile.childImageSharp.fluid, aspectRatio: 1 / 1}}
+                    imgStyle={{ objectFit: "contain" }}
                     key={currentImage.localFile.id}
                     alt={product.title}
                     fadeIn={false} 
