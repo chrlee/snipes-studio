@@ -59,15 +59,24 @@ const Provider = ({ children }) => {
             value={{
                 store,
                 customerAccessToken: getlocalStorage('customerAccessToken'),
-                addVariantToCart: (variantId, quantity) => {
+                addVariantToCart: (variantId, quantity, vendor, handle) => {
                     updateStore(state => {
                         return { ...state, adding: true }
                     })
                     const { checkout, client } = store
                     const checkoutId = checkout.id
-                    const lineItemsToUpdate = [
-                        { variantId, quantity: parseInt(quantity, 10) },
-                    ]
+                    const lineItemsToUpdate = [{
+                        variantId: variantId,
+                        quantity: parseInt(quantity, 10),
+                        customAttributes: [{
+                            key: 'handle',
+                            value: handle
+                        },
+                        {
+                            key: 'vendor',
+                            value: vendor
+                        }] 
+                    },]
                     var inCart = false
                     checkout.lineItems.forEach(lineItem => {
                         if(lineItem.variant.id === variantId) {

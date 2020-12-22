@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { navigate } from "gatsby"
 import StoreContext from "../../context/store"
 
 const Product = ({ checkout, line_item }) => {
@@ -6,49 +7,62 @@ const Product = ({ checkout, line_item }) => {
     const context = useContext(StoreContext)
 
     const imageItem = line_item.variant.image && (
-        <figure className="image is-96x96" style={{margin: "auto"}}>
+        <>
+        <figure className="image is-64x64 is-hidden-desktop" style={{margin: "auto"}}>
             <img
                 src={line_item.variant.image.src}
                 alt={line_item.variant.image.altText}
             />
         </figure>
+        <figure className="image is-96x96 is-hidden-mobile" style={{margin: "auto"}}>
+            <img
+                src={line_item.variant.image.src}
+                alt={line_item.variant.image.altText}
+            />
+        </figure>
+    </>
     )
 
     const removeItem = () => {
         context.removeLineItem(line_item.id)
     }
+
+    const navToProduct = () => {
+        navigate("/product/"+line_item.customAttributes[0].value)
+    }
+
+
     return (
         <>
-            <tr className="is-hidden-touch">
+            <tr>
                 <th>
                     {imageItem}
                 </th>
+                {console.log(line_item)}
                 <th style={{verticalAlign: "inherit"}}>
-                    <p className="has-text-weight-semibold is-size-5 has-text-black">{line_item.title} ({line_item.variant.title}) </p>
-                    <button className="has-text-weight-normal has-text-danger link-button" type="button" onClick={removeItem}>Remove</button>
+                <p className="is-size-6-desktop is-size-7-mobile has-text-gray has-text-weight-semibold">
+                    <span style={{cursor: "pointer"}} onClick={((event) => navToProduct())}>
+                        {line_item.customAttributes[1].value}
+                    </span>
+                </p>
+                <p className="is-size-6-desktop is-size-7-mobile has-text-gray has-text-weight-medium">
+                    <span style={{cursor: "pointer"}} onClick={((event) => navToProduct())}>
+                        {line_item.title}
+                    </span>
+                </p>
+                <p className="is-size-6-desktop is-size-7-mobile has-text-gray has-text-weight-light">
+                    <span style={{cursor: "pointer"}} onClick={((event) => navToProduct())}>
+                        ({line_item.variant.title})
+                    </span>
+                </p>
                 </th>
                 <th style={{verticalAlign: "inherit"}}>
-                    ${line_item.variant.price}
+                    <p className="is-size-6-desktop is-size-7-mobile has-text-gray has-text-weight-medium has-text-centered">${line_item.variant.price}</p>
                 </th>
                 <th style={{verticalAlign: "inherit"}}>
-                    {line_item.quantity}
-                </th>
-                <th style={{verticalAlign: "inherit"}}>
-                    {`$${(line_item.quantity * line_item.variant.price).toFixed(2)}`}
+                    <p className="has-text-weight-normal is-size-6-desktop is-size-7-mobile has-text-gray has-text-centered" style={{cursor:'pointer'}} onClick={removeItem}>X</p>
                 </th>
             </tr>
-            <div className="is-hidden-desktop">
-                <div className="columns is-mobile is-vcentered">
-                    <div className="column">
-                        {imageItem}
-                    </div>
-                    <div className="column">
-                        <p className="has-text-weight-semibold is-size-5 has-text-black">{line_item.title}</p>
-                        <p className="has-text-weight-normal has-text-black">{line_item.variant.title}</p>
-                        <button className="has-text-weight-normal has-text-danger link-button" type="button" onClick={removeItem}>Remove</button>
-                    </div>
-                </div>
-            </div>
         </>
     );
 };

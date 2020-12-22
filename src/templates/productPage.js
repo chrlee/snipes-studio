@@ -88,6 +88,7 @@ const productPage = ({ data }) => {
                                         context={context} 
                                         available={available} 
                                         quantity={quantity} 
+                                        product={product}
                                         productVariant={productVariant}
                                     />
                                     <hr />
