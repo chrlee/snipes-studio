@@ -7,7 +7,7 @@ const Collection = ({context, products}) => {
     const types = []
     types.push(
         <option value="all" key="-1">
-            All
+            Category
         </option>
     )
     products.map((t, i) => {

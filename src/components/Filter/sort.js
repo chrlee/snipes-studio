@@ -8,7 +8,7 @@ const Sort = ({context}) => {
   sorts.push(
     <>
       <option key={0} value="featured">
-        Default
+        Sort
         </option>
       <option key={1} value="A-Z">
         Alphabetic, A-Z
