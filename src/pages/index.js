@@ -3,12 +3,14 @@ import SEO from "../components/seo"
 import { graphql } from "gatsby"
 import ProductList from '../components/productList';
 import Scene from "../components/scene"
+import ScrollButton from "../components/scrollButton"
 
 const IndexPage = ({ data }) => {
   return (
     <>
       <SEO title="Home" />
       <Scene />
+      <ScrollButton />
       <ProductList data={data} />
     </>
   )

@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `perlin-noise`,
+    title: `perlin noise`,
     description: `clothes`,
     author: `@cjl.e`,
   },

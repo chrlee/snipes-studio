@@ -3,6 +3,8 @@ import ProductBox from "./ProductList/productBox"
 import Sort from "./Filter/sort"
 import Collection from './Filter/collection';
 import StoreContext from '../context/store'
+import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
 
 const ProductList = ({ data }) => {
   const { edges: products } = data.allShopifyProduct
@@ -10,6 +12,7 @@ const ProductList = ({ data }) => {
 
   return (
     <section className="hero">
+      <Element name="shop"></Element>
       <div className="hero-body">
         <div className="container">
           <div className="columns is-mobile level" style={{ marginBottom: "4rem", margin: "0", padding: "1rem 0" }}>

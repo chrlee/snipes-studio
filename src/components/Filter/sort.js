@@ -11,16 +11,16 @@ const Sort = ({context}) => {
         Sort
         </option>
       <option key={1} value="A-Z">
-        Alphabetic, A-Z
+        A - Z
         </option>
       <option key={2} value="Z-A">
-        Alphabetic, Z-A
+        Z - A
         </option>
       <option key={3} value="low">
-        Price, ↑
+        Price ↑
         </option>
       <option key={4} value="high">
-        Price, ↓
+        Price ↓
         </option>
     </>
   )
