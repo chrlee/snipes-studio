@@ -1,9 +1,9 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import ProductBox from "./ProductList/productBox"
 import Sort from "./Filter/sort"
 import Collection from './Filter/collection';
 import StoreContext from '../context/store'
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Element } from 'react-scroll'
 
 
 const ProductList = ({ data }) => {

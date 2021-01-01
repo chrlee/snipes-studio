@@ -72,6 +72,10 @@ const AboutPage = () => (
               <p>
                 instagram: <a href="https://www.instagram.com/perlinnoise" target="_blank" rel="noopener noreferrer">@perlinnoise</a>
               </p>
+              <br />
+              <p className="has-text-grey is-size-7">
+              ©2021, perlin noise
+              </p>
             </div>
           </div>
         </div>

@@ -41,17 +41,17 @@ const Product = ({ checkout, line_item }) => {
                 {console.log(line_item)}
                 <th style={{verticalAlign: "inherit"}}>
                 <p className="is-size-6-desktop is-size-7-mobile has-text-gray has-text-weight-semibold">
-                    <span style={{cursor: "pointer"}} onClick={((event) => navToProduct())}>
+                    <span style={{cursor: "pointer"}} role="button" onClick={((event) => navToProduct())}>
                         {line_item.customAttributes[1].value}
                     </span>
                 </p>
                 <p className="is-size-6-desktop is-size-7-mobile has-text-gray has-text-weight-medium">
-                    <span style={{cursor: "pointer"}} onClick={((event) => navToProduct())}>
+                    <span style={{cursor: "pointer"}} role="button" onClick={((event) => navToProduct())}>
                         {line_item.title}
                     </span>
                 </p>
                 <p className="is-size-6-desktop is-size-7-mobile has-text-gray has-text-weight-light">
-                    <span style={{cursor: "pointer"}} onClick={((event) => navToProduct())}>
+                    <span style={{cursor: "pointer"}} role="button" onClick={((event) => navToProduct())}>
                         ({line_item.variant.title})
                     </span>
                 </p>

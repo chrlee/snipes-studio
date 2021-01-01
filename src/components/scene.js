@@ -1,6 +1,5 @@
 import React from "react"
 import * as THREE from "three"
-import { isMobile } from "react-device-detect"
 
 import { noise } from "./perlin";
 
