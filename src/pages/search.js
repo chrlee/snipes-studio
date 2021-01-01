@@ -25,7 +25,7 @@ const SearchPage = ({ data }) => {
                                 </span>
                             </p>
                         </div>
-                        <h1 className="is-size-5 has-text-medium">RESULTS FOR "{search.toLowerCase()}" :</h1>
+                        <h1 className="is-size-5 has-text-medium">results for {search.toLowerCase()}:</h1>
                     </div>
                 </div>
                 <div className="hero-body">
@@ -39,7 +39,7 @@ const SearchPage = ({ data }) => {
                                 !p ?
                                     <p>Nothings with : {search} </p>
                                     :
-                                    <div className="column is-3" style={{ marginBottom: "40px" }} key={i}>
+                                    <div className="column is-3" style={{ marginBottom: "2rem" }} key={i}>
                                         <ProductBox product={p} />
                                     </div>
                             ))}

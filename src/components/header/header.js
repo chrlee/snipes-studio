@@ -46,7 +46,7 @@ const Header = ({ img }) => {
               </Link>
             </div>
             <div className="navbar-item">
-              <Link aria-label="cart" to="/account/login">
+              <Link aria-label="cart" to="/about">
                 <h2 className="is-size-6 has-text-grey">about</h2>
               </Link>
             </div>
