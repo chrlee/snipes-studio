@@ -49,6 +49,7 @@ export const query = graphql`
           variants {
             id
             title
+            compareAtPrice
             price
             availableForSale
           }

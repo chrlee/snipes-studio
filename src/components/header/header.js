@@ -37,12 +37,12 @@ const Header = ({ img }) => {
 
   return (
     <>
-      <nav className="navbar level is-vcentered is-absolute" role="navigation" aria-label="main navigation">
+      <nav className="navbar is-absolute" role="navigation" aria-label="main navigation">
         
           <div className="navbar-start">
             <div className="navbar-item">
               <Link aria-label="home" to="/">
-                <h2 className="has-text-grey is-size-5">perlin noise</h2>
+                <h2 className="has-text-grey is-size-4-desktop is-size-5-mobile">perlin noise</h2>
               </Link>
             </div>
             <div className="navbar-item">

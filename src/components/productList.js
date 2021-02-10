@@ -11,7 +11,7 @@ const ProductList = ({ data }) => {
   const context = useContext(StoreContext);
 
   return (
-    <section className="hero">
+    <section className="hero gradient">
       <Element name="shop"></Element>
       <div className="hero-body">
         <div className="container">

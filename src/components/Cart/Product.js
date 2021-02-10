@@ -12,12 +12,14 @@ const Product = ({ checkout, line_item }) => {
             <img
                 src={line_item.variant.image.src}
                 alt={line_item.variant.image.altText}
+                style={{display:"block",height:"100%", width:"auto"}}
             />
         </figure>
         <figure className="image is-96x96 is-hidden-mobile" style={{margin: "auto"}}>
             <img
                 src={line_item.variant.image.src}
                 alt={line_item.variant.image.altText}
+                style={{display:"block",height:"100%", width:"auto"}}
             />
         </figure>
     </>

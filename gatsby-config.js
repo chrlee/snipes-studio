@@ -5,12 +5,17 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `perlin noise`,
-    description: `clothes`,
+    description: `perlin noise, archive/avante-garde clothing`,
     author: `@cjl.e`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        implementation: require("sass"),
+      }
+    },
     `gatsby-plugin-layout`,
     {
       resolve: `gatsby-plugin-apollo-shopify`,
@@ -47,7 +52,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-146773242-1",
+        trackingId: process.env.GATSBY_TRACKING_ID,
       },
     },
     `gatsby-transformer-sharp`,
