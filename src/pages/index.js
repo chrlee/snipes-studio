@@ -26,7 +26,7 @@ export const query = graphql`
           id
           title
           handle
-          createdAt(fromNow: true)
+          createdAt
           publishedAt
           productType
           vendor

@@ -10,6 +10,17 @@ const ProductList = ({ data }) => {
   const { edges: products } = data.allShopifyProduct
   const context = useContext(StoreContext);
 
+  const defaultSort = (a, b) =>{
+    let aDate = new Date(a.node.createdAt)
+    let bDate = new Date(b.node.createdAt)
+    if(b.node.variants[0].availableForSale == a.node.variants[0].availableForSale){
+      if(aDate < bDate) return -1
+      else return 1
+    } else {
+      return a.node.variants[0].availableForSale - b.node.variants[0].availableForSale
+    }
+  }
+
   return (
     <section className="hero gradient">
       <Element name="shop"></Element>
@@ -28,7 +39,7 @@ const ProductList = ({ data }) => {
               products
                 .filter(p => context.store.filteredType === 'all' ? p : (p.node.productType.includes(context.store.filteredType)))
                 .sort(
-                  context.store.filteredSort === "featured" ? ((a, b) => (b.node.variants[0].availableForSale - a.node.variants[0].availableForSale))
+                  context.store.filteredSort === "featured" ? ((a, b) => (defaultSort(b,a)))
                     : context.store.filteredSort === "low" ? ((a, b) => a.node.variants[0].price - b.node.variants[0].price)
                       : context.store.filteredSort === "high" ? ((a, b) => b.node.variants[0].price - a.node.variants[0].price)
                         : context.store.filteredSort === "Z-A" ? ((a, b) => b.node.title.localeCompare(a.node.title))

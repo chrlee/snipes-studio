@@ -7,7 +7,7 @@ const AboutPage = () => (
     <SEO title="about" />
     <section className="hero is-fullheight">
       <div className="hero-body">
-        <div className="container">
+        <div className="container mt-2">
           <div className="columns">
           <div className="column is-half">
             <h2 className="has-text-weight-semibold">
