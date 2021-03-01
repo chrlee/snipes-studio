@@ -12242,9 +12242,9 @@ three-orbit-controls@^82.1.0:
   version "82.1.0"
   resolved "https://registry.npmjs.org/three-orbit-controls/-/three-orbit-controls-82.1.0.tgz"
 
-three@^0.122.0:
-  version "0.122.0"
-  resolved "https://registry.npmjs.org/three/-/three-0.122.0.tgz"
+three@^0.125.0:
+  version "0.125.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.125.0.tgz#19e922b9dc51ad0b706893aeee888de68e99850a"
 
 through2@^2.0.0, through2@^2.0.1:
   version "2.0.5"

@@ -48,7 +48,7 @@
     "sass": "^1.32.7",
     "shopify-buy": "^2.9.0",
     "styled-components": "^4.4.1",
-    "three": "^0.122.0",
+    "three": "^0.125.0",
     "three-orbit-controls": "^82.1.0"
   },
   "devDependencies": {
